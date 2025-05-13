@@ -1,0 +1,498 @@
+/* Global Styles */
+body {
+    padding-top: 80px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Update to a modern and aesthetic font */
+    line-height: 1.6; /* Improve readability */
+    background: linear-gradient(135deg, #05040a, #1a1a2e); /* Gradient background */
+    color: #f0f0f0; /* Softer text color */
+    padding-top: 80px;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed; /* Agar tetap di atas */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Gunakan viewport width agar full width */
+    background: black;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box; /* Pastikan padding tidak membuat elemen melebar */
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add shadow */
+    font-size: 16px; /* Adjust font size */
+    font-weight: 500; /* Medium weight for better readability */
+    font-family: 'Poppins', sans-serif; /* Keep a clean font for navigation */
+}
+
+.logo {
+    font-size: 24px; /* Larger logo text */
+    font-weight: 700; /* Bold for emphasis */
+    letter-spacing: 1px; /* Add spacing for a modern look */
+}
+
+.navbar-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    padding: 5px 10px; /* Add padding for better click area */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Slightly smaller font size */
+    font-weight: 500; /* Medium weight */
+}
+
+.navbar-list a:hover {
+    color: yellow;
+    background: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+}
+
+/* Menu Toggle */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e, #0f0f1f); /* Add gradient background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px 50px; /* Adjust padding */
+    text-align: left; /* Align text for better readability */
+}
+
+.left-section {
+    flex: 1;
+}
+
+.left-section h2 {
+    font-size: 32px; /* Larger subheading */
+    font-weight: 600; /* Semi-bold for emphasis */
+    margin-bottom: 10px;
+    color: #ffdd57; /* Highlight color */
+    font-family: 'Montserrat', sans-serif; /* Match the aesthetic font */
+}
+
+.left-section h1 {
+    font-size: 56px; /* Larger heading */
+    font-weight: 800; /* Extra bold for impact */
+    letter-spacing: 2px; /* Add spacing between letters */
+    line-height: 1.2; /* Adjust line height */
+    font-family: 'Montserrat', sans-serif; /* Match the aesthetic font */
+}
+
+.role {
+    font-size: 18px; /* Slightly smaller */
+    font-weight: 500; /* Medium weight */
+    color: #ffd700; /* Softer yellow */
+    font-family: 'Montserrat', sans-serif; /* Match the aesthetic font */
+    animation: blink 1s infinite; /* Add blinking animation */
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.right-section img {
+    width: 80%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+/* Blinking Animation */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0; /* Invisible */
+    }
+}
+
+/* About Section */
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background: linear-gradient(135deg, #1a1a2e, #0f0f1f); /* Gradient background */
+    border-radius: 20px; /* Rounded corners */
+    color: #f0f0f0;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.about-left {
+    flex: 1;
+}
+
+.about-left h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffdd57;
+    margin-bottom: 20px;
+}
+
+.about-left p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
+
+.about-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about-right img {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Qualification Section */
+.qualification {
+    padding: 50px;
+    background: linear-gradient(135deg, #2a2a3e, #1a1a2e); /* Gradient background */
+    border-radius: 20px;
+    color: #f0f0f0;
+}
+
+.qualification h2 {
+    font-size: 36px; /* Match the size of other section titles */
+    font-weight: 700; /* Bold for emphasis */
+    color: #ffdd57; /* Highlight color consistent with the theme */
+    text-align: center; /* Center-align the title */
+    margin-bottom: 30px; /* Add spacing below the title */
+}
+
+.qualification-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next row */
+    justify-content: center; /* Center-align cards */
+    gap: 20px; /* Add spacing between cards */
+}
+
+.qualification-card {
+    background: #1a1a2e; /* Card background color */
+    color: #e0e0e0; /* Text color */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    text-align: center;
+    flex: 1 1 auto; /* Allow cards to grow or shrink based on content */
+    min-width: 250px; /* Minimum width for smaller screens */
+    max-width: 100%; /* Prevent cards from exceeding container width */
+    margin: 10px; /* Add spacing between cards */
+    word-wrap: break-word; /* Ensure long words break properly */
+}
+
+.qualification-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffdd57;
+    margin-bottom: 15px;
+}
+
+.qualification-card p,
+.qualification-card ul {
+    font-size: 14px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* Certification Card */
+.qualification-card ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+    line-height: 1.8; /* Improve readability */
+    color: #e0e0e0; /* Softer text color */
+}
+
+.qualification-card ul li {
+    position: relative;
+    padding-left: 20px; /* Add space for the icon */
+    margin-bottom: 10px;
+}
+
+.qualification-card ul li::before {
+    content: '✔'; /* Add a checkmark icon */
+    position: absolute;
+    left: 0;
+    color: #ffdd57; /* Highlight color */
+    font-size: 14px;
+}
+
+.qualification-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.qualification-card li {
+    margin-bottom: 10px;
+}
+
+/* Portfolio Section */
+.portofolio {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.portofolio h2 {
+    font-size: 36px; /* Larger section headings */
+    font-weight: 700; /* Bold for emphasis */
+    margin-bottom: 20px; /* Add spacing below */
+    color: #ffdd57; /* Highlight color */
+    font-family: 'Montserrat', sans-serif; /* Ensure the portfolio section matches the theme */
+}
+
+.container {
+    display: grid; /* Use grid layout for alignment */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Add spacing between items */
+    padding: 20px;
+    max-width: 1200px; /* Limit the width of the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.image-wrapper {
+    position: relative;
+    overflow: hidden; /* Ensure images do not overflow */
+    border-radius: 10px; /* Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for aesthetics */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.image-wrapper img {
+    width: 100%; /* Make the image fill the container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the container */
+    display: block;
+    transition: transform 0.3s ease; /* Smooth zoom effect on hover */
+}
+
+/* Specific adjustment for Emotion Detection */
+.image-wrapper img[alt="Emotion Detection"] {
+    margin-top: 20px; /* Move the image slightly down */
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Center the image horizontally */
+}
+
+.image-wrapper:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+.info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    padding: 10px;
+    text-align: left; /* Align text to the left */
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Smooth transition */
+    word-wrap: break-word; /* Allow long words to break to the next line */
+    white-space: normal; /* Ensure text wraps properly */
+    overflow-wrap: break-word; /* Ensure long words break properly */
+    max-width: 95%; /* Ensure text fits within the container */
+    margin: 0 auto; /* Center the text container horizontally */
+    line-height: 1.6; /* Improve readability */
+    padding: 10px 15px; /* Add padding for better spacing */
+}
+
+.image-wrapper:hover .info {
+    opacity: 1; /* Show on hover */
+    visibility: visible; /* Show on hover */
+}
+
+/* Button for Portfolio Details */
+.btn-details {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: white; /* Default background color */
+    color: black; /* Default text color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-size: 14px; /* Adjust font size */
+    font-weight: 600; /* Semi-bold for emphasis */
+    letter-spacing: 0.5px; /* Add spacing for a modern look */
+    border: 2px solid transparent; /* Add border for hover effect */
+}
+
+.btn-details:hover {
+    background: #ffdd57; /* Change background to yellow on hover */
+    color: black; /* Ensure text remains readable */
+    border-color: #ffdd57; /* Add border color to match hover background */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 10px rgba(255, 221, 87, 0.4); /* Stronger shadow on hover */
+}
+
+/* Contact Section */
+.contact {
+    padding: 50px;
+    text-align: center;
+}
+
+.contact p {
+    margin: 10px 0;
+    font-size: 16px; /* Adjust font size */
+    font-weight: 400; /* Regular weight */
+    color: #e0e0e0; /* Softer text color */
+    font-family: 'Montserrat', sans-serif; /* Keep the contact section consistent */
+}
+
+.contact h2 {
+    font-size: 36px; /* Larger section headings */
+    font-weight: 700; /* Bold for emphasis */
+    margin-bottom: 20px; /* Add spacing below */
+    color: #ffdd57; /* Highlight color */
+    font-family: 'Montserrat', sans-serif; /* Keep the contact section consistent */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        left: 0;
+        background: black;
+        padding: 10px;
+        border-radius: 5px;
+        transition: 0.5s;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-list.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hero Section */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        gap: 10px; /* Tambahan: agar jarak antar elemen konsisten */
+    }
+
+    .left-section h1 {
+        font-size: 36px; /* Adjust heading size for smaller screens */
+    }
+
+    .right-section {
+        margin-top: 5px; /* Perubahan: lebih mepet ke tulisan "Junior Developer" */
+    }
+
+    .right-section img {
+        width: 90%; /* Increase image size */
+        max-width: 300px; /* Allow a larger maximum size */
+    }
+
+    /* About Section */
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .about-right img {
+        width: 100%;
+        max-width: 250px; /* Adjust image size for smaller screens */
+    }
+
+    /* Qualification Section */
+    .qualification-container {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 15px; /* Reduce spacing between cards */
+    }
+
+    .qualification-card {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    /* Portfolio Section */
+    .container {
+        grid-template-columns: 1fr; /* Stack portfolio items vertically */
+        gap: 15px; /* Reduce spacing between items */
+    }
+
+    .image-wrapper img {
+        max-width: 100%; /* Ensure images fit within smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .info {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 10px; /* Adjust padding for better spacing */
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: 30px; /* Adjust padding for smaller screens */
+    }
+
+    .contact h2 {
+        font-size: 28px; /* Adjust heading size */
+    }
+
+    .contact p {
+        font-size: 14px; /* Adjust font size */
+    }
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5);
+}
+
