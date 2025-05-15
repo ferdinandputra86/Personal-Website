@@ -109,38 +109,68 @@
                 <a href="https://drive.google.com/drive/folders/1Yb0uKxWluvIgVdL6cbtdepzl-_FMlSfx" target="_blank" class="btn-details">View All Certificates</a>
             </div>
         </div>
-    </section>
-
-    <!-- Portfolio Section -->
+    </section>    <!-- Portfolio Section -->
     <section id="portofolio" class="portofolio">
         <h2>Portfolio</h2>
-        <div class="container">
-            <div class="image-wrapper">
-                <img src="IMG/rythm.png" alt="Rythm">
+        <p class="section-description">Here are some of my recent projects that showcase my skills and experience.</p>
+        <div class="container">            <div class="image-wrapper">
+                <div class="project-image">
+                    <img src="IMG/rythm.png" alt="Rythm">
+                </div>
+                <div class="project-overlay"></div>
                 <div class="info">
+                    <div class="project-category">Music Application</div>
                     <h3>Rythm</h3>
                     <p>Rythm is a music-sharing application where users can upload their music for others to listen to, fostering a symbiotic relationship between creators and listeners.</p>
-                    <a href="https://github.com/ferdinandputra86/rythm" target="_blank" class="btn-details">View Details</a>
+                    <div class="project-tech">
+                        <span>Kotlin</span>
+                        <span>Android</span>
+                        <span>Firebase</span>
+                    </div>
+                    <a href="https://github.com/ferdinandputra86/rythm" target="_blank" class="btn-details">
+                        <i class="fab fa-github"></i> View Project
+                    </a>
                 </div>
-            </div>
-            <div class="image-wrapper">
-                <img src="IMG/Diabetes.png" alt="Diabetes Sense">
+            </div>            <div class="image-wrapper">
+                <div class="project-image">
+                    <img src="IMG/Diabetes.png" alt="Diabetes Sense">
+                </div>
+                <div class="project-overlay"></div>
                 <div class="info">
+                    <div class="project-category">Healthcare Application</div>
                     <h3>Diabetes Sense</h3>
                     <p>Diabetes Sense is an application that detects ulcer wounds and directs users to the nearest hospital for treatment.</p>
-                    <a href="https://github.com/C241-PS090/Mobile-Development" target="_blank" class="btn-details">View Details</a>
+                    <div class="project-tech">
+                        <span>Kotlin</span>
+                        <span>TensorFlow</span>
+                        <span>Maps API</span>
+                    </div>
+                    <a href="https://github.com/C241-PS090/Mobile-Development" target="_blank" class="btn-details">
+                        <i class="fab fa-github"></i> View Project
+                    </a>
                 </div>
             </div>
             <div class="image-wrapper">
-                <img src="IMG/emotion.png" alt="Emotion Detection">
+                <div class="project-image">
+                    <img src="IMG/emotion.png" alt="Emotion Detection">
+                </div>
+                <div class="project-overlay"></div>
                 <div class="info">
+                    <div class="project-category">Machine Learning</div>
                     <h3>Emotion Detection</h3>
                     <p>This project trains machine learning models (SVM and NB) to detect emotions based on textual input.</p>
-                    <a href="https://github.com/ferdinandputra86/Emotion-Detection-NB-SVM" target="_blank" class="btn-details">View Details</a>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>NLP</span>
+                        <span>SVM & NB</span>
+                    </div>
+                    <a href="https://github.com/ferdinandputra86/Emotion-Detection-NB-SVM" target="_blank" class="btn-details">
+                        <i class="fab fa-github"></i> View Project
+                    </a>
                 </div>
             </div>
         </div>
-    </section>    <!-- Contact Section -->
+    </section><!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact</h2>
         <div class="contact-container">
@@ -150,8 +180,7 @@
                 </div>
                 <h3>Email</h3>
                 <a href="mailto:ferdinandputra86@gmail.com" class="contact-info">ferdinandputra86@gmail.com</a>
-            </div>
-            <div class="contact-card">
+            </div>            <div class="contact-card">
                 <div class="contact-icon">
                     <i class="fab fa-linkedin"></i>
                 </div>
@@ -200,12 +229,14 @@
         const qualificationCards = document.querySelectorAll('.qualification-card');
         qualificationCards.forEach((card, index) => {
             card.style.setProperty('--card-order', index);
-        });
-        
-        // Add animation for portfolio items
+        });          // Add animation for portfolio items
         const portfolioItems = document.querySelectorAll('.image-wrapper');
         portfolioItems.forEach((item, index) => {
             item.style.setProperty('--portfolio-order', index);
+            // Make all items visible (no filtering)
+            item.style.display = 'block';
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1)';
         });
         
         // Navbar scroll effect
