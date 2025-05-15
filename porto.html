@@ -4,21 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="porto.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <title>Ferdinand</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Ferdinand | Personal Portfolio</title>
+    <meta name="description" content="Rio Ferdinand Putra Pratama - Personal Portfolio Website - Junior Developer">
+    <link rel="icon" href="IMG/profile.png" type="image/png">
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader"></div>
+    </div>
 
     <!-- Navbar -->
     <nav class="navbar">
-        <div class="logo">FERDINAND.</div>
+        <div class="logo">FERDINAND<span class="dot">.</span></div>
         <ul class="navbar-list">
             <li><a href="#about">About</a></li>
             <li><a href="#qualification">Qualification</a></li>
             <li><a href="#portofolio">Portfolio</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="menu-toggle">&#9776;</div>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
     </nav>
 
     <!-- Hero Section -->
@@ -133,19 +140,86 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
+    </section>    <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Contact</h2>
-        <p>Email: ferdinandputra86@gmail.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/ferdinandputra86" target="_blank">www.linkedin.com/in/ferdinandputra86</a></p>
-        <p>Instagram: <a href="https://www.instagram.com/r.fnand/" target="_blank">www.instagram.com/r.fnand/</a></p>
-    </section>
-
-    <script>
+        <div class="contact-container">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <a href="mailto:ferdinandputra86@gmail.com" class="contact-info">ferdinandputra86@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/ferdinandputra86" target="_blank" class="contact-info">www.linkedin.com/in/ferdinandputra86</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <h3>Instagram</h3>
+                <a href="https://www.instagram.com/r.fnand/" target="_blank" class="contact-info">www.instagram.com/r.fnand/</a>
+            </div>
+        </div>
+    </section><script>
+        // Page loader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.page-loader').classList.add('loaded');
+            }, 500);
+        });
+        
+        // Mobile menu toggle
         document.querySelector(".menu-toggle").addEventListener("click", function () {
             document.querySelector(".navbar-list").classList.toggle("active");
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.navbar-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector(".navbar-list").classList.remove("active");
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add animation for qualification cards
+        const qualificationCards = document.querySelectorAll('.qualification-card');
+        qualificationCards.forEach((card, index) => {
+            card.style.setProperty('--card-order', index);
+        });
+        
+        // Add animation for portfolio items
+        const portfolioItems = document.querySelectorAll('.image-wrapper');
+        portfolioItems.forEach((item, index) => {
+            item.style.setProperty('--portfolio-order', index);
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.padding = '10px 50px';
+                navbar.style.background = 'rgba(15, 12, 41, 0.98)';
+                navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
+            } else {
+                navbar.style.padding = '15px 50px';
+                navbar.style.background = 'rgba(15, 12, 41, 0.95)';
+                navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)';
+            }
         });
     </script>
 
