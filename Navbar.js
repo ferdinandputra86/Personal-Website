@@ -1,7 +1,7 @@
 document.getElementById("navbar").innerHTML = `
   <div class="Navbar">
     <div class="logo">
-      <a href="Porto.html"><img src="logo.png" alt="Logo" height="90"></a>
+      <a href="porto.html"><img src="logo.png" alt="Logo" height="90"></a>
     </div>
     <button class="burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
       <span class="burger-line"></span>
