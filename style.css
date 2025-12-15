@@ -1,0 +1,546 @@
+.flicker-1 {
+  animation: flicker-1 2s linear infinite both;
+}
+body {
+  background-color: black;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+p {
+  color: aliceblue;
+  font-size: 25px;
+  word-spacing: 1.4px;
+  letter-spacing: 3px;
+  max-width: 1200px;
+  margin-bottom: 40px;
+  font-family: "Victor Mono", monospace;
+  margin-left: 100px;
+}
+
+.highlight {
+  color: #ff00ff;
+  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff66ff, 0 0 15px #ff66ff;
+}
+
+.highlight:hover {
+  color: #ffffff; /* biar efek glow lebih kuat */
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff33ff,
+    0 0 40px #ff66ff, 0 0 50px #ff99ff;
+}
+
+h1 {
+  color: aliceblue;
+  font-size: 70px;
+}
+h2 {
+  color: #fff;
+}
+
+.Experience {
+  margin-left: 100px;
+}
+
+.ListExperience {
+  margin-left: 100px;
+}
+
+.ListExperience p {
+  margin-left: 0px;
+}
+
+.Projects {
+  margin-left: 100px;
+}
+
+.Nama {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-left: 100px;
+}
+.Navbar {
+  display: flex;
+  padding: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+/* make room for absolute-positioned mobile menu */
+.Navbar {
+  position: relative;
+}
+.Menu {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  font-size: 25px;
+}
+
+.Menu li {
+  list-style: none;
+}
+
+.Menu li a {
+  display: flex; /* Biar konten bisa ditengah */
+  align-items: center; /* Vertikal center */
+  justify-content: center; /* Horizontal center */
+  padding: 8px 16px; /* Kasih ruang */
+  border-radius: 12px; /* Bentuk rounded default */
+  transition: 0.3s;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: aliceblue;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.Menu li a:hover {
+  background-color: #ff00ff;
+  box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff66ff, 0 0 15px #ff66ff;
+  border-radius: 20px; /* Tetap rounded */
+}
+
+.Navbar .logo {
+  display: flex;
+  /* justify-content: start; */
+}
+
+.Navbar .logo a img {
+  height: 90px; /* tinggi logo */
+  filter: drop-shadow(0 0 5px #ff00ff) drop-shadow(0 0 10px #ff00ff)
+    drop-shadow(0 0 1px #ff66ff); /* lebih sedikit dan blur lebih kecil */
+  transition: filter 0.3s;
+}
+
+.Navbar .logo a img:hover {
+  filter: drop-shadow(0 0 7px #ff00ff) drop-shadow(0 0 12px #ff00ff)
+    drop-shadow(0 0 20px #ff66ff); /* hover sedikit lebih terang */
+}
+
+/* Mobile burger button (hidden on desktop) */
+.burger {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.burger:focus {
+  outline: 2px solid rgba(255, 0, 255, 0.25);
+  border-radius: 6px;
+}
+.burger-line {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.burger.open .burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.open .burger-line:nth-child(2) {
+  opacity: 0;
+}
+.burger.open .burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.flicker-1 {
+  font-family: "yellowtail";
+  animation: flicker-1 2s linear infinite both;
+
+  color: #fff;
+  text-shadow: 0 0 4px #d39cff, 0 0 8px #c471ff, 0 0 12px #a150ff,
+    0 0 16px #7f2fff, 0 0 20px #5e00ff;
+}
+
+@keyframes flicker-1 {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  41.99% {
+    opacity: 1;
+  }
+  42% {
+    opacity: 0;
+  }
+  43% {
+    opacity: 0;
+  }
+  43.01% {
+    opacity: 1;
+  }
+  47.99% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  49.01% {
+    opacity: 1;
+  }
+}
+
+.ListExperience ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+.ListExperience ul li::marker {
+  color: #ffffff;
+  font-size: 30px;
+}
+
+/* Card Styles */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.card {
+  background: linear-gradient(135deg, #520237 0%, #16213e 100%);
+  border: 2px solid #0f3460;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 5px 15px rgba(255, 0, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(255, 0, 255, 0.3);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #000;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content h2 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.card-content p {
+  color: aliceblue;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.btn-github {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.btn-github:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.6);
+}
+
+/* Certificate Styles */
+.Certificate {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.Certificate h1 {
+  color: aliceblue;
+  font-size: 70px;
+  margin-bottom: 40px;
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+  justify-items: center;
+  align-items: start;
+  grid-auto-rows: auto; /* let rows adapt to card height */
+}
+
+.certificate-item {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.certificate-item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.certificate-item:hover {
+  transform: translateY(-10px);
+}
+
+.certificate-card {
+  background: linear-gradient(135deg, #520237 0%, #16213e 100%);
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(255, 0, 255, 0.1);
+  transition: box-shadow 0.3s ease;
+  padding: 12px 20px 16px; /* slightly reduce vertical padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  max-width: 520px; /* restore previous card max width */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.certificate-card {
+  justify-content: flex-start; /* stack canvas then title */
+}
+
+.certificate-card .certificate-title {
+  margin-top: 16px; /* normal spacing under canvas */
+}
+
+.certificate-card:hover {
+  box-shadow: 0 10px 30px rgba(255, 0, 255, 0.3);
+}
+
+.certificate-canvas {
+  width: 100%;
+  height: 380px; /* increase image size while keeping card same */
+  max-height: 380px;
+  flex: none;
+  border-radius: 8px;
+  background: #000;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.certificate-title {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 12px;
+  margin-bottom: 0;
+  text-align: left;
+  font-weight: 600;
+  width: calc(100% - 32px);
+  word-wrap: break-word;
+  letter-spacing: 0.2px; /* reduce wide spacing inherited from global p */
+  line-height: 1.3;
+  padding: 0 16px 8px 16px; /* left/right padding so text aligns nicely */
+}
+
+.coming-soon-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: linear-gradient(135deg, #2a0845 0%, #1a1a3e 100%);
+}
+
+.coming-soon-content {
+  text-align: center;
+}
+
+.coming-soon-text {
+  color: #ff00ff;
+  font-size: 48px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff66ff, 0 0 30px #ff66ff;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+/* Lightbox modal for enlarged PDF */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+#lightbox.open {
+  display: flex;
+}
+#lightbox .lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  background: transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#lightbox-canvas {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  background: #fff;
+}
+.lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  background: #222;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 880px) {
+  /* general page padding reduction */
+  body {
+    padding: 0 16px;
+  }
+  .burger {
+    display: block;
+  }
+  .Menu {
+    display: none;
+  }
+  /* mobile dropdown */
+  .Menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 12px;
+    flex-direction: column;
+    gap: 10px;
+    background: linear-gradient(
+      180deg,
+      rgba(20, 6, 40, 0.98),
+      rgba(12, 12, 30, 0.98)
+    );
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    min-width: 160px;
+    z-index: 1000;
+  }
+  .Menu.open {
+    display: flex;
+  }
+  /* reduce menu item size for phones */
+  .Menu li a {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+  .Navbar .logo a img {
+    height: 64px;
+  }
+
+  /* reduce large headings and paragraph sizes on smaller screens */
+  h1 {
+    font-size: 36px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  /* reset large left margins used for desktop layout */
+  .Experience,
+  .ListExperience,
+  .Projects,
+  .Nama {
+    margin-left: 20px;
+  }
+
+  /* certificate card adjustments */
+  .certificate-canvas {
+    height: 300px;
+    max-height: 300px;
+  }
+  .certificate-title {
+    font-size: 13px;
+  }
+}
+
+/* even smaller phones */
+@media (max-width: 480px) {
+  body {
+    padding: 0 12px;
+  }
+  .Menu li a {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 16px;
+    margin-left: 12px;
+  }
+  .Navbar .logo a img {
+    height: 48px;
+  }
+  .certificate-canvas {
+    height: 240px;
+    max-height: 240px;
+  }
+  .certificate-title {
+    font-size: 12px;
+  }
+  .Nama {
+    gap: 12px;
+  }
+}

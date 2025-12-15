@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate</title>
+  </head>
+  <div id="navbar"></div>
+  <body>
+    <div class="Certificate">
+      <h1>Certificate.</h1>
+      <h2>Android Developer</h2>
+      <div id="certificatesContainer" class="certificates-grid"></div>
+
+      <h2 style="margin-top: 60px;">Bangkit by Google, Goto, Tokopedia, Traveloka</h2>
+      <div id="bangkitContainer" class="certificates-grid"></div>
+
+      <h2 style="margin-top: 60px;">Cloud Computing</h2>
+      <div id="cloudComputingContainer" class="certificates-grid"></div>
+
+      <h2 style="margin-top: 60px;">PHP</h2>
+      <div id="phpContainer" class="certificates-grid"></div>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+      <script>
+        const androidCertificates = [
+          { name: "AndroidBasic.pdf", title: "Android Basics" },
+          { name: "Fundamental.pdf", title: "Fundamental Android" },
+          { name: "git.pdf", title: "Git" },
+          { name: "Intermediate.pdf", title: "Intermediate Android" },
+          {
+            name: "Machine Learning.pdf",
+            title: "Machine Learning for Android Apps",
+          },
+          {
+            name: "Memulai Pemrograman dengan Kotlin.pdf",
+            title: "Kotlin Basic",
+          },
+          {
+            name: "sertifikat_course_237_1843497_170224224533.pdf",
+            title: "Software Development Basic",
+          },
+          {
+            name: "sertifikat_course_302_1843497_170224231647.pdf",
+            title: "Programming Basic",
+          }
+        ];
+
+        const bangkitCertificates = [
+          {
+            name: "[Bangkit 2024 Batch 1] Certificate - A012D4KY4300.pdf",
+            title: "Bangkit 2024 Batch 1",
+          }
+        ];
+
+        const cloudComputingCertificates = [
+          { name: "GDSC CC.pdf", title: "Cloud Computing" }
+        ];
+
+        const PHPcertificates = [
+            {
+                name: "Belajar Pemrograman PHP.pdf",
+                title: "Base PHP"
+            }
+        ];
+
+        function renderCertificates(certs, containerId) {
+          const container = document.getElementById(containerId);
+
+          certs.forEach((cert, index) => {
+            const certDiv = document.createElement("div");
+            certDiv.className = "certificate-item";
+
+            const canvasId = `pdf-thumbnail-${containerId}-${index}`;
+            certDiv.innerHTML = `
+              <div class="certificate-card">
+                <canvas id="${canvasId}" class="certificate-canvas"></canvas>
+                <p class="certificate-title">${cert.title}</p>
+              </div>
+            `;
+
+              container.appendChild(certDiv);
+              // open lightbox when user clicks the certificate
+              certDiv.addEventListener('click', () => {
+                openLightbox(url, cert.title);
+              });
+              const url = `Certif/${cert.name}`;
+              pdfjsLib
+                .getDocument(url)
+                .promise.then((pdf) => {
+                  pdf.getPage(1).then((page) => {
+                    const viewportUnscaled = page.getViewport({ scale: 1 });
+
+                    const canvas = document.getElementById(canvasId);
+                    const context = canvas.getContext("2d");
+
+                    // Determine available inner width of parent card (account for padding)
+                    const parent = canvas.parentElement;
+                    const parentStyle = window.getComputedStyle(parent);
+                    const parentPaddingLeft = parseFloat(parentStyle.paddingLeft) || 0;
+                    const parentPaddingRight = parseFloat(parentStyle.paddingRight) || 0;
+                    const availableWidth = Math.max(parent.clientWidth - parentPaddingLeft - parentPaddingRight, 300);
+
+                    // Desired height comes from CSS (.certificate-canvas height)
+                    const computedCanvasStyle = window.getComputedStyle(canvas);
+                    const desiredHeight = parseFloat(computedCanvasStyle.height) || 380; // fallback
+
+                    // Choose scale to fit width (and not exceed desired height)
+                    const scaleW = availableWidth / viewportUnscaled.width;
+                    const scaleH = desiredHeight / viewportUnscaled.height;
+                    const scale = Math.min(scaleW, scaleH);
+                    const viewport = page.getViewport({ scale });
+
+                    // Render at device pixel ratio for sharpness but keep CSS sizing controlled by layout
+                    const ratio = window.devicePixelRatio || 1;
+                    canvas.width = Math.floor(viewport.width * ratio);
+                    canvas.height = Math.floor(viewport.height * ratio);
+
+                    // Set CSS size so canvas fits nicely inside the card
+                    canvas.style.width = Math.round(Math.min(viewport.width, availableWidth)) + "px";
+                    canvas.style.height = Math.round(Math.min(viewport.height, desiredHeight)) + "px";
+                    canvas.style.background = "#fff";
+                    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+                    page.render({ canvasContext: context, viewport: viewport });
+                  });
+                })
+                .catch((error) => {
+                  console.error(`Error loading ${cert.name}:`, error);
+                });
+          });
+        }
+
+        function addComingSoon(containerId) {
+          const container = document.getElementById(containerId);
+          const certDiv = document.createElement("div");
+          certDiv.className = "certificate-item";
+          
+          certDiv.innerHTML = `
+            <div class="certificate-card coming-soon-card">
+              <div class="coming-soon-content">
+                <p class="coming-soon-text">Coming Soon</p>
+              </div>
+            </div>
+          `;
+          
+          container.appendChild(certDiv);
+        }
+
+        renderCertificates(androidCertificates, "certificatesContainer");
+        renderCertificates(bangkitCertificates, "bangkitContainer");
+        renderCertificates(cloudComputingCertificates, "cloudComputingContainer");
+        renderCertificates(PHPcertificates,"phpContainer");
+        addComingSoon("phpContainer");
+
+        // Lightbox: render a larger version of the selected PDF
+        const lightbox = document.createElement('div');
+        // create modal only once in DOM
+        function ensureLightbox() {
+          if (document.getElementById('lightbox')) return;
+          const lb = document.createElement('div');
+          lb.id = 'lightbox';
+          lb.setAttribute('aria-hidden','true');
+          lb.innerHTML = `
+            <div class="lightbox-content">
+              <div class="lightbox-close" id="lightboxClose">✕</div>
+              <canvas id="lightbox-canvas"></canvas>
+            </div>
+          `;
+          document.body.appendChild(lb);
+          // close handlers
+          lb.addEventListener('click', (e) => {
+            if (e.target === lb) closeLightbox();
+          });
+          document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+          document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+        }
+
+        function openLightbox(url, title) {
+          ensureLightbox();
+          const lb = document.getElementById('lightbox');
+          const canvas = document.getElementById('lightbox-canvas');
+          lb.classList.add('open');
+          lb.setAttribute('aria-hidden','false');
+          // render PDF page 1 to the lightbox canvas
+          pdfjsLib.getDocument(url).promise.then((pdf) => {
+            pdf.getPage(1).then((page) => {
+              // compute target width (80% viewport)
+              const maxW = Math.floor(window.innerWidth * 0.8);
+              const maxH = Math.floor(window.innerHeight * 0.8);
+              const vp = page.getViewport({ scale: 1 });
+              const scaleW = maxW / vp.width;
+              const scaleH = maxH / vp.height;
+              const scale = Math.min(scaleW, scaleH);
+              const viewport = page.getViewport({ scale });
+              const ratio = window.devicePixelRatio || 1;
+              canvas.width = Math.floor(viewport.width * ratio);
+              canvas.height = Math.floor(viewport.height * ratio);
+              canvas.style.width = Math.round(viewport.width) + 'px';
+              canvas.style.height = Math.round(viewport.height) + 'px';
+              const ctx = canvas.getContext('2d');
+              ctx.setTransform(ratio,0,0,ratio,0,0);
+              page.render({ canvasContext: ctx, viewport: viewport });
+            });
+          }).catch((err) => { console.error('Lightbox PDF error', err); });
+        }
+
+        function closeLightbox() {
+          const lb = document.getElementById('lightbox');
+          if (!lb) return;
+          lb.classList.remove('open');
+          lb.setAttribute('aria-hidden','true');
+          const canvas = document.getElementById('lightbox-canvas');
+          if (canvas) {
+            const ctx = canvas.getContext('2d');
+            ctx && ctx.clearRect(0,0,canvas.width, canvas.height);
+          }
+        }
+      </script>
+  </body>
+  <script src="Navbar.js"></script>
+</html>
